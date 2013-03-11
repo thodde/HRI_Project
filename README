@@ -1,0 +1,34 @@
+To build a the system use ../gradlew installApp
+Make sure gradle v1.1 or newer is installed.
+
+To start ros running in the background run:
+
+roscore &
+
+to create new nodelets use the following commands:
+
+./build/install/ROSDisco/bin/ROSDisco org.ros.rosjava_tutorial_pubsub.Listener &
+./build/install/ROSDisco/bin/ROSDisco org.ros.rosjava_tutorial_pubsub.Talker &
+
+
+First, begin writing a node to control the pr2.  Use Gazebo for simulation.  NOTE:  Gazebo's physics engine has issues with picking up objects.  I have a script that is suppose to teleport objects to the gazebo's hands, getting close is sufficient.  We really need two functions.  One that picks objects up and another that sets objects down.  Once we have this, it's really just manipulating them to pick up different objects.
+
+Begin by following some of the tutorials on rosjava's site.  You will need to use the actionlib and gazebo libraries.  
+
+
+Make sure you follow the instructions on setting your ros java classpath and setting up your workspace!
+
+So start to scratch compile to run looks like this via command line:
+
+../gradlew installApp (from the directory in your rosjava workspace) 
+roscore &
+./build/install/ROSDisco/bin/ROSDisco org.ros.rosjava_tutorial_pubsub.Listener &
+./build/install/ROSDisco/bin/ROSDisco org.ros.rosjava_tutorial_pubsub.Talker &
+
+Then you should get a pop up console and you can type:
+task SetCloth
+
+For now, simply work on an independent system and we can link them later, this way we aren't running into issues with my stuff not working and it affecting your progress.
+
+cheers,
+James
