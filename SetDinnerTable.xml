@@ -11,8 +11,8 @@
   
   <task id="SetCloth">
     <script>
-	var cloth = "The table cloth has been set";
-	org.ros.rosjava_tutorial_pubsub.Talker.test();
+	var cloth = "SetCloth()";
+	org.ros.rosjava_tutorial_pubsub.Talker.setMessage(cloth);
 	
 	<!-- var cloth = new Packages.org.ros.rosjava_tutorial_pubsub.Talker();
 	Packages.org.ros.rosjava_tutorial_pubsub.Talker.setMessage(cloth);
@@ -24,8 +24,7 @@
   </task>
 
   <task id="SetPlace">
-
-    <subtasks id="setplace" ordered="false">
+      <subtasks id="setplace" ordered="false">
       <step name="plate" task="SetPlate"/>
       <step name="napkin" task="SetNapkin" requires="plate"/>
       <step name="glass" task="SetGlass" requires="plate"/>
@@ -43,31 +42,49 @@
   </task>
 
   <task id="SetPlate">
-    <script> println("The plate is set!"); </script>
+    <script> 
+    var plate ="SetPlate()";
+    org.ros.rosjava_tutorial_pubsub.Talker.setMessage(plate);
+    </script>
+   
   </task>
   
   <task id="SetGlass">
-    <script> println("The glass is set!"); </script>
   </task>
 
   <task id="SetNapkin">
-    <script> println("The napkin is set!"); </script>
+    <script> 
+    var napkin ="SetNapkin()";
+    org.ros.rosjava_tutorial_pubsub.Talker.setMessage(napkin);
+    </script>
   </task>
 
   <task id="SetFork">
-    <script> println("The fork is set!"); </script>
+    <script>
+    var fork = "SetFork()";
+    org.ros.rosjava_tutorial_pubsub.Talker.setMessage(fork);
+    </script>
   </task>
 
   <task id="SetKnife">
-    <script> println("The knife is set!"); </script>
+    <script> 
+    var knife ="SetKnife()";
+    org.ros.rosjava_tutorial_pubsub.Talker.setMessage(knife);
+    </script>
   </task>
   
   <task id="SetSpoon">
-    <script> println("The spoon is set!"); </script>
+    <script> 
+    var spoon ="SetSpoon()";
+    org.ros.rosjava_tutorial_pubsub.Talker.setMessage(spoon);
+    </script>
   </task>
 
   <task id="SetFlowers">
-    <script> println("The Flowers are set!"); </script>
+    <script> 
+    var flowers ="SetFlowers()";
+    org.ros.rosjava_tutorial_pubsub.Talker.setMessage(flowers);
+    </script>
   </task>
 
 </taskModel>

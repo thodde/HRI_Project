@@ -7,8 +7,8 @@ import org.ros.node.ConnectedNode;
 import org.ros.node.NodeMain;
 import org.ros.node.topic.Publisher;
 
-public class Talker extends AbstractNodeMain {
-  public String incMessage;
+public class Talker extends AbstractNodeMain{
+  private static String incMessage;
 
   @Override
     public GraphName getDefaultNodeName() { return GraphName.of("rosjava_tutorial_pubsub/talker"); }
@@ -22,14 +22,18 @@ public class Talker extends AbstractNodeMain {
       private int sequenceNumber;
       @Override
       protected void setup() {
-	incMessage = "setup";
+Thread thread1 = new Thread() {
+	public void run() {
+		ComponentExample.main(null);
+}};
+	thread1.start();
+	//Thread t = new Thread(ComponentExample.main(null));
+	incMessage = "Setting up Nodelet...";
 	std_msgs.String rosStr = publisher.newMessage();
-	ComponentExample.main(null);
         sequenceNumber = 0;
       }
       @Override
       public void loop() throws InterruptedException {
-	forward( connectedNode );
 	std_msgs.String str1 = publisher.newMessage();
         str1.setData(incMessage);
         publisher.publish(str1);
@@ -43,12 +47,9 @@ public class Talker extends AbstractNodeMain {
 	msg.setData(incMessage);
 	publisher2.publish(msg);
      }
-     public void setMessage(String str) {
+     public static void setMessage(String str) {
 	incMessage = str;
      }	
-    public static void test(){
-	System.out.println("TEST SUCCEEDED");
-}
-    public String getMessage(){
+    public static String getMessage(){
 	return incMessage;
 }}

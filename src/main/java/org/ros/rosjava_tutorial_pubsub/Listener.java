@@ -23,7 +23,7 @@ public class Listener extends AbstractNodeMain {
     subscriber.addMessageListener(new MessageListener<std_msgs.String>() {
  @Override
       public void onNewMessage(std_msgs.String message) {
-        log.info("Task: \"" + message.getData() + "Executed" + "\"");
+        log.info("Task: \"" + message.getData() + "\"");
    
   }
     });

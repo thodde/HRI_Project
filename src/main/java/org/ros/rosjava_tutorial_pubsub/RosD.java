@@ -17,6 +17,6 @@ public class RosD {
   incMessage = str;
   }
   public void send(){
-  org.ros.rosjava_tutorial_pubsub.Talker.test();
+//  org.ros.rosjava_tutorial_pubsub.Talker.test();
   }  
 }
