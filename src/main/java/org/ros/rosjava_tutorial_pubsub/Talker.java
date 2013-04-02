@@ -22,11 +22,14 @@ public class Talker extends AbstractNodeMain{
       private int sequenceNumber;
       @Override
       protected void setup() {
-Thread thread1 = new Thread() {
-	public void run() {
-		ComponentExample.main(null);
-}};
+	 Thread thread1 = new Thread(){
+      public void run(){
+ 	Imitate.main(null);   
+          }
+        };
+
 	thread1.start();
+	
 	//Thread t = new Thread(ComponentExample.main(null));
 	incMessage = "Setting up Nodelet...";
 	std_msgs.String rosStr = publisher.newMessage();
@@ -39,6 +42,7 @@ Thread thread1 = new Thread() {
         publisher.publish(str1);
         sequenceNumber++;
         Thread.sleep(1000);
+
 } });
 }
      public void forward( ConnectedNode rosNode) {
@@ -52,4 +56,5 @@ Thread thread1 = new Thread() {
      }	
     public static String getMessage(){
 	return incMessage;
-}}
+    }
+}
